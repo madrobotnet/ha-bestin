@@ -257,8 +257,8 @@ class CenterAPIv2:
                             unit_last = unit["unit"]
                             unit_state = {
                                 ATTR_STATE: unit["state"] == "on",
-                                COLOR_MODE_BRIGHTNESS: int(unit["dimming"]) if unit["dimming"] != "null" else None,
-                                COLOR_MODE_COLOR_TEMP: int(unit["color"]) if unit["color"] != "null" else None,
+                                ColorMode.BRIGHTNESS: int(unit["dimming"]) if unit["dimming"] != "null" else None,
+                                ColorMode.COLOR_TEMP: int(unit["color"]) if unit["color"] != "null" else None,
                             }
                         else:
                             unit_last = unit["unit"][-1]
