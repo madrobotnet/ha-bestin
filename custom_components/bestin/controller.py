@@ -179,7 +179,7 @@ class BestinController:
             ]
             if not isinstance(value, bool):
                 packet[8] = 0xFF
-                if sub_type == COLOR_MODE_BRIGHTNESS:
+                if sub_type == ColorMode.BRIGHTNESS:
                     packet[9] = value
                 else:
                     packet[10] = value
@@ -510,8 +510,8 @@ class BestinController:
             if brightness and color_temp:
                 state_gen2["light"][str(i)] = {
                     ATTR_STATE: packet[l_idx] == 0x01,
-                    COLOR_MODE_BRIGHTNESS: brightness,
-                    COLOR_MODE_COLOR_TEMP: color_temp,
+                    ColorMode.BRIGHTNESS: brightness,
+                    ColorMode.COLOR_TEMP: color_temp,
                 }
                 state_gen2["light"][f"dcvalue_{str(i)}"] = dc_value
             l_idx += 13
